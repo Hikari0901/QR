@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 0; /* Elimina el padding para que la imagen ocupe toda la pantalla */
+            margin: 0; /* Elimina el margen para evitar scroll */
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px; /* Espacio arriba del título */
+        }
+        h2 {
+            margin-top: 30px; /* Espacio arriba del subtítulo */
+            margin-bottom: 10px; /* Espacio abajo del subtítulo */
+        }
+        p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        img {
+            width: 80vw; /* Ajusta el ancho a un 80% del ancho de la ventana */
+            height: auto; /* Mantiene la proporción de la imagen */
+            max-height: 80vh; /* Limita la altura máxima al 80% de la ventana */
+            object-fit: contain; /* Mantiene la proporción de la imagen */
+            margin: 20px auto; /* Centra la imagen horizontalmente */
+            display: block; /* Asegura que el margen funcione */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡El código QR se ha generado con éxito!</h1>
+    <p>El código alfanumérico generado es: <strong>{{ random_code }}</strong></p>
+    
+    <h2>Imagen del QR generado:</h2>
+    <img src="{{ qr_image_url }}" alt="Código QR">
+
+    <p>
+        <a href="{{ qr_image_url }}" class="btn" download="qr_code.png">Descargar imagen del QR</a>
+    </p>
+    
+    <form action="{% url 'generate_qr_code' %}" method="get">
+        <button type="submit" class="btn">Generar otro código QR</button>
+    </form>
+
+</body>
+</html>
+
+
+
+
+
+
+
